@@ -1,0 +1,37 @@
+<table class="table o_report_block_table">
+    <thead>
+        <tr>
+            <th class="text-center"><span>No.</span></th>
+            <th class="text-center"><span>Description</span></th>
+            <th class="text-center"><span>Quantity</span></th>
+            <th class="text-center"><span>Unit Price</span></th>
+            <th class="text-center"><span>Tax</span></th>
+            <th><span>Subtotal</span></th>
+        </tr>
+    </thead>
+    <t t-set="no" t-value="0"/>
+    <tbody>
+        <tr t-foreach="doc.order_line" t-as="table_line">
+            <td class="text-center">
+                <t t-set="no" t-value="no+1"/>
+                <span t-esc="no"/>
+            </td>
+            <td class="text-start">
+                <span t-field="table_line.name"/>
+                <span t-field="table_line.x_studio_spesifikasi"/>
+            </td>
+            <td class="text-center">
+                <span t-field="table_line.product_qty"/>
+            </td>
+            <td class="text-center">
+                <span t-field="table_line.price_unit"/>
+            </td>
+            <td class="text-center">
+                <span t-field="table_line.price_tax"/>
+            </td>
+            <td>
+                <span t-field="table_line.price_subtotal"/>
+            </td>
+        </tr>
+    </tbody>
+</table>
